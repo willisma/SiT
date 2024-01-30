@@ -44,8 +44,8 @@ class Transport:
         model_type,
         path_type,
         loss_type,
-        train_eps=1e-5,
-        sample_eps=1e-3,
+        train_eps,
+        sample_eps,
     ):
         path_options = {
             PathType.LINEAR: path.ICPlan,

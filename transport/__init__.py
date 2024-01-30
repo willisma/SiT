@@ -4,8 +4,8 @@ def create_transport(
     path_type='Linear',
     prediction="velocity",
     loss_weight=None,
-    train_eps=1e-5,
-    sample_eps=1e-3,
+    train_eps=None,
+    sample_eps=None,
 ):
     """function for creating Transport object
     **Note**: model prediction defaults to velocity
@@ -56,6 +56,8 @@ def create_transport(
         model_type=model_type,
         path_type=path_type,
         loss_type=loss_type,
+        train_eps=train_eps,
+        sample_eps=sample_eps,
     )
     
     return state
