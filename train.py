@@ -162,7 +162,8 @@ def main(args):
         ema.load_state_dict(state_dict["ema"])
         opt.load_state_dict(state_dict["opt"])
         args = state_dict["args"]
-        requires_grad(ema, False)
+
+    requires_grad(ema, False)
     
     model = DDP(model.to(device), device_ids=[rank])
     transport = create_transport(
