@@ -120,10 +120,8 @@ if __name__ == "__main__":
 
     assert mode[:2] != "--", "Usage: program.py <mode> [options]"
     assert mode in ["ODE", "SDE"], "Invalid mode. Please choose 'ODE' or 'SDE'"
-
-    # parser.add_argument("--sampler-type", type=str, default="ODE", choices=["ODE", "SDE"])
     
-    # parser.add_argument("--model", type=str, choices=list(SiT_models.keys()), default="SiT-XL/2")
+    parser.add_argument("--model", type=str, choices=list(SiT_models.keys()), default="SiT-XL/2")
     parser.add_argument("--vae", type=str, choices=["ema", "mse"], default="mse")
     parser.add_argument("--image-size", type=int, choices=[256, 512], default=256)
     parser.add_argument("--num-classes", type=int, default=1000)

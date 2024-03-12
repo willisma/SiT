@@ -97,7 +97,7 @@ class LabelEmbedder(nn.Module):
 
 class SiTBlock(nn.Module):
     """
-    A SiT block with adaptive layer norm zero (adaLN-Zero) conSiTioning.
+    A SiT block with adaptive layer norm zero (adaLN-Zero) conditioning.
     """
     def __init__(self, hidden_size, num_heads, mlp_ratio=4.0, **block_kwargs):
         super().__init__()
