@@ -357,10 +357,7 @@ class Sampler:
         - rtol: relative error tolerance for the solver
         - reverse: whether solving the ODE in reverse (data to noise); default to False
         """
-        if reverse:
-            drift = lambda x, t, model, **kwargs: self.drift(x, th.ones_like(t) * (1 - t), model, **kwargs)
-        else:
-            drift = self.drift
+        drift = self.drift
 
         t0, t1 = self.transport.check_interval(
             self.transport.train_eps,
