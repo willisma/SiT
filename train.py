@@ -114,7 +114,13 @@ def main(args):
     assert torch.cuda.is_available(), "Training currently requires at least one GPU."
 
     # Setup DDP:
-    dist.init_process_group("nccl")
+    # dist.init_process_group("nccl")
+    dist.init_process_group(
+        backend="nccl",
+        init_method="env://",  # 从环境变量中读取信息
+        world_size=int(os.environ["WORLD_SIZE"]),
+        rank=int(os.environ["RANK"])
+    )
     assert args.global_batch_size % dist.get_world_size() == 0, f"Batch size must be divisible by world size."
     rank = dist.get_rank()
     device = rank % torch.cuda.device_count()
