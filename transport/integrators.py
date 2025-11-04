@@ -87,8 +87,6 @@ class ode:
         atol,
         rtol,
     ):
-        assert t0 < t1, "ODE sampler has to be in forward time"
-
         self.drift = drift
         self.t = th.linspace(t0, t1, num_steps)
         self.atol = atol
