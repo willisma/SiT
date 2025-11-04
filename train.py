@@ -165,7 +165,7 @@ def main(args):
 
     requires_grad(ema, False)
     
-    model = DDP(model.to(device), device_ids=[rank])
+    model = DDP(model.to(device), device_ids=[device])
     transport = create_transport(
         args.path_type,
         args.prediction,
